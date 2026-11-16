@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Locações pendentes | Locadora</title><link rel="stylesheet" href="../css/style.css"></head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a class="marca" href="../dashboard.html">LOCADORA<span>+</span></a><span class="sidebar-legenda">MENU PRINCIPAL</span>
+      <nav class="sidebar-nav"><a class="nav-link" href="../dashboard.html">▦ <span>Início</span></a><a class="nav-link" href="checkin.html">↘ <span>Novo check-in</span></a><a class="nav-link" href="checkout.html">↗ <span>Novo check-out</span></a><a class="nav-link" href="relatorios.html">▤ <span>Relatórios</span></a><a class="nav-link ativo" href="pendentes.html">◷ <span>Locações pendentes</span></a></nav>
+      <div class="sidebar-bottom"><div class="usuario-mini"><div class="avatar">A</div><div><strong>Administrador</strong><small>Funcionário</small></div></div><button class="nav-link botao-sair" data-sair>⇥ <span>Sair do sistema</span></button></div>
+    </aside>
+    <main class="conteudo">
+      <header class="topbar"><div><a class="voltar" href="../dashboard.html">← Voltar ao painel</a><span class="texto-suave">ACOMPANHAMENTO DA FROTA</span><h1>Locações pendentes</h1><p class="texto-suave">Veículos retirados que ainda não possuem check-out registrado.</p></div></header>
+      <div class="resumo-pendencias"><span>LOCAÇÕES EM ANDAMENTO</span><strong id="contador-pendentes">0</strong></div>
+      <div id="lista-pendentes" class="lista-relatorios"></div>
+      <footer class="rodape-app">Locadora+ · Acompanhamento de devoluções</footer>
+    </main>
+  </div>
+  <script src="../js/dados.js"></script><script>
+    Locadora.protegerPagina();
+    const pendentes = Locadora.listar().filter(item => item.status === "pendente");
+    document.querySelector("#contador-pendentes").textContent = pendentes.length;
+    const lista = document.querySelector("#lista-pendentes");
+    if (!pendentes.length) {
+      lista.innerHTML = '<div class="estado-vazio"><span>✓</span><h3>Nenhuma locação pendente</h3><p>Quando um check-in for registrado, ele aparecerá aqui.</p></div>';
+    } else {
+      lista.innerHTML = pendentes.map(item => `
+        <article class="relatorio-card">
+          <div class="relatorio-card-topo"><span class="status status-pendente">Pendente</span><small>${Locadora.formatarData(item.dataRetirada)}</small></div>
+          <h3>${Locadora.escapar(item.marca)} ${Locadora.escapar(item.modelo)}</h3>
+          <p><strong>Placa:</strong> ${Locadora.escapar(item.placa)} · <strong>Cliente:</strong> ${Locadora.escapar(item.nomeCliente)}</p>
+          <p><strong>Retirada:</strong> ${Locadora.formatarData(item.dataRetirada)} às ${Locadora.escapar(item.horaRetirada)}</p>
+          <div class="relatorio-card-acoes"><a class="btn btn-principal" href="checkout.html?id=${encodeURIComponent(item.id)}">Realizar check-out</a><a class="btn btn-secundario" href="relatorios.html?id=${encodeURIComponent(item.id)}">Ver check-in</a></div>
+        </article>`).join("");
+    }
+  </script>
+</body>
+</html>

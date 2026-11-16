@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Check-out | Locadora</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a class="marca" href="../dashboard.html">LOCADORA<span>+</span></a><span class="sidebar-legenda">MENU PRINCIPAL</span>
+      <nav class="sidebar-nav">
+        <a class="nav-link" href="../dashboard.html">▦ <span>Início</span></a><a class="nav-link" href="checkin.html">↘ <span>Novo check-in</span></a><a class="nav-link ativo" href="checkout.html">↗ <span>Novo check-out</span></a><a class="nav-link" href="relatorios.html">▤ <span>Relatórios</span></a><a class="nav-link" href="pendentes.html">◷ <span>Locações pendentes</span></a>
+      </nav><div class="sidebar-bottom"><div class="usuario-mini"><div class="avatar">A</div><div><strong>Administrador</strong><small>Funcionário</small></div></div><button class="nav-link botao-sair" data-sair>⇥ <span>Sair do sistema</span></button></div>
+    </aside>
+    <main class="conteudo">
+      <header class="topbar"><div><a class="voltar" href="../dashboard.html">← Voltar ao painel</a><span class="texto-suave">REGISTRO DE DEVOLUÇÃO</span><h1>Novo Check-out</h1><p class="texto-suave">Selecione uma locação pendente para carregar os dados e as fotos do check-in.</p></div></header>
+      <section class="form-card">
+        <div class="form-card-titulo"><span class="passo">01</span><div><h2>Selecionar locação</h2><p>Somente locações ainda não finalizadas aparecem aqui.</p></div></div>
+        <div class="campo"><label for="locacaoSelecionada">Locação / placa *</label><select id="locacaoSelecionada"><option value="">Selecione uma locação pendente</option></select></div>
+        <div id="resumo-locacao" class="resumo-locacao vazio">Selecione uma locação para visualizar os dados do check-in.</div>
+      </section>
+      <form id="form-checkout" class="oculto">
+        <section class="form-card">
+          <div class="form-card-titulo"><span class="passo">02</span><div><h2>Conferência do check-in</h2><p>Dados originais registrados na retirada.</p></div></div>
+          <div id="dados-checkin" class="dados-resumo"></div>
+          <h3 class="subtitulo-form">Fotos registradas no Check-in</h3>
+          <div id="fotos-originais" class="galeria-preview"></div>
+        </section>
+        <section class="form-card"><div class="form-card-titulo"><span class="passo">03</span><div><h2>Dados da devolução</h2><p>Informe os dados do veículo no retorno.</p></div></div><div class="form-grid"><div class="campo"><label for="dataRetorno">Data da devolução *</label><input type="date" id="dataRetorno" required></div><div class="campo"><label for="horaRetorno">Horário *</label><input type="time" id="horaRetorno" required></div><div class="campo"><label for="kmRetorno">Quilometragem de retorno (km) *</label><input type="number" id="kmRetorno" min="0" required></div><div class="campo"><label for="combustivelRetorno">Nível do combustível *</label><select id="combustivelRetorno" required><option value="">Selecione</option><option>Reserva</option><option>1/4</option><option>1/2</option><option>3/4</option><option>Cheio</option></select></div></div></section>
+<section class="form-card" id="checkout-etapa1"><div class="form-card-titulo"><span class="passo">04</span><div><h2>Vistoria externa e interna — Check-out</h2><p>Registre uma fotografia de cada uma das oito partes do veículo.</p></div></div><div class="vistoria-grid"><article class="vistoria-item"><div class="vistoria-item-topo"><strong>01. Frente</strong><span>Foto obrigatória</span></div><label for="checkout-foto-0">Fotografia</label><input type="file" id="checkout-foto-0" accept="image/*" required><div id="checkout-preview-0" class="galeria-preview"></div><label for="checkout-obs-0">Observações</label><textarea id="checkout-obs-0" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>02. Traseira</strong><span>Foto obrigatória</span></div><label for="checkout-foto-1">Fotografia</label><input type="file" id="checkout-foto-1" accept="image/*" required><div id="checkout-preview-1" class="galeria-preview"></div><label for="checkout-obs-1">Observações</label><textarea id="checkout-obs-1" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>03. Lateral direita</strong><span>Foto obrigatória</span></div><label for="checkout-foto-2">Fotografia</label><input type="file" id="checkout-foto-2" accept="image/*" required><div id="checkout-preview-2" class="galeria-preview"></div><label for="checkout-obs-2">Observações</label><textarea id="checkout-obs-2" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>04. Lateral esquerda</strong><span>Foto obrigatória</span></div><label for="checkout-foto-3">Fotografia</label><input type="file" id="checkout-foto-3" accept="image/*" required><div id="checkout-preview-3" class="galeria-preview"></div><label for="checkout-obs-3">Observações</label><textarea id="checkout-obs-3" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>05. Parte superior (teto)</strong><span>Foto obrigatória</span></div><label for="checkout-foto-4">Fotografia</label><input type="file" id="checkout-foto-4" accept="image/*" required><div id="checkout-preview-4" class="galeria-preview"></div><label for="checkout-obs-4">Observações</label><textarea id="checkout-obs-4" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>06. Interior dianteiro</strong><span>Foto obrigatória</span></div><label for="checkout-foto-5">Fotografia</label><input type="file" id="checkout-foto-5" accept="image/*" required><div id="checkout-preview-5" class="galeria-preview"></div><label for="checkout-obs-5">Observações</label><textarea id="checkout-obs-5" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>07. Interior traseiro</strong><span>Foto obrigatória</span></div><label for="checkout-foto-6">Fotografia</label><input type="file" id="checkout-foto-6" accept="image/*" required><div id="checkout-preview-6" class="galeria-preview"></div><label for="checkout-obs-6">Observações</label><textarea id="checkout-obs-6" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>08. Porta-malas</strong><span>Foto obrigatória</span></div><label for="checkout-foto-7">Fotografia</label><input type="file" id="checkout-foto-7" accept="image/*" required><div id="checkout-preview-7" class="galeria-preview"></div><label for="checkout-obs-7">Observações</label><textarea id="checkout-obs-7" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article></div><div class="barra-acoes"><button type="button" class="btn btn-principal" id="checkout-ir-etapa2">Continuar para avarias →</button></div></section>
+<section class="form-card oculto" id="checkout-etapa2"><div class="form-card-titulo"><span class="passo">02</span><div><h2>Avarias e condições do veículo</h2><p>Informe se existem danos, batidas ou outros problemas.</p></div></div>
+<div class="form-grid">
+<div class="campo"><label>O veículo possui alguma avaria? *</label><div class="opcoes-radio"><label><input type="radio" name="checkout-tem-avaria" value="sim" required> Sim</label><label><input type="radio" name="checkout-tem-avaria" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Possui batida ou amassado? *</label><div class="opcoes-radio"><label><input type="radio" name="checkout-tem-batida" value="sim" required> Sim</label><label><input type="radio" name="checkout-tem-batida" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Possui riscos ou arranhões? *</label><div class="opcoes-radio"><label><input type="radio" name="checkout-tem-riscos" value="sim" required> Sim</label><label><input type="radio" name="checkout-tem-riscos" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Há danos em vidros, pneus ou faróis? *</label><div class="opcoes-radio"><label><input type="radio" name="checkout-tem-outros" value="sim" required> Sim</label><label><input type="radio" name="checkout-tem-outros" value="nao" required> Não</label></div></div>
+</div>
+<div class="campo"><label for="checkout-descricao-avarias">Descreva as avarias ou outras condições</label><textarea id="checkout-descricao-avarias" rows="4" placeholder="Informe onde está o dano, o tamanho e outros detalhes..."></textarea></div>
+<div class="campo"><label for="checkout-fotos-avarias">Fotos específicas das avarias (até 4)</label><input type="file" id="checkout-fotos-avarias" accept="image/*" multiple><small class="ajuda">Anexe imagens adicionais caso tenha respondido Sim em alguma pergunta.</small></div><div id="checkout-preview-avarias" class="galeria-preview"></div>
+<div class="barra-acoes"><button type="button" class="btn btn-secundario" id="checkout-voltar-etapa1">← Voltar para as fotos</button></div></section>
+        <p id="mensagem-checkout" class="mensagem-formulario" aria-live="polite"></p>
+        <div class="barra-acoes"><a class="btn btn-secundario" href="../dashboard.html">Sair</a><button class="btn btn-principal" type="submit">Finalizar Check-out e visualizar relatório</button></div>
+      </form>
+      <footer class="rodape-app">Locadora+ · Registro de devolução</footer>
+    </main>
+  </div>
+  <script src="../js/dados.js"></script><script src="../js/checkout.js"></script>
+</body>
+</html>

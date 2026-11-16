@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Check-in | Locadora</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a class="marca" href="../dashboard.html">LOCADORA<span>+</span></a><span class="sidebar-legenda">MENU PRINCIPAL</span>
+      <nav class="sidebar-nav">
+        <a class="nav-link" href="../dashboard.html">▦ <span>Início</span></a>
+        <a class="nav-link ativo" href="checkin.html">↘ <span>Novo check-in</span></a>
+        <a class="nav-link" href="checkout.html">↗ <span>Novo check-out</span></a>
+        <a class="nav-link" href="relatorios.html">▤ <span>Relatórios</span></a>
+        <a class="nav-link" href="pendentes.html">◷ <span>Locações pendentes</span></a>
+      </nav><div class="sidebar-bottom"><div class="usuario-mini"><div class="avatar">A</div><div><strong>Administrador</strong><small>Funcionário</small></div></div><button class="nav-link botao-sair" data-sair>⇥ <span>Sair do sistema</span></button></div>
+    </aside>
+    <main class="conteudo">
+      <header class="topbar"><div><a class="voltar" href="../dashboard.html">← Voltar ao painel</a><span class="texto-suave">REGISTRO DE RETIRADA</span><h1>Novo Check-in</h1><p class="texto-suave">Preencha os dados da locação e registre as condições do veículo.</p></div></header>
+      <form id="form-checkin">
+        <section class="form-card">
+          <div class="form-card-titulo"><span class="passo">01</span><div><h2>Dados da locação</h2><p>Identificação da retirada do veículo.</p></div></div>
+          <div class="form-grid">
+            <div class="campo"><label for="dataRetirada">Data da retirada *</label><input type="date" id="dataRetirada" required></div>
+            <div class="campo"><label for="horaRetirada">Horário *</label><input type="time" id="horaRetirada" required></div>
+            <div class="campo"><label for="funcionario">Funcionário responsável *</label><input id="funcionario" required placeholder="Nome do funcionário"></div>
+          </div>
+        </section>
+        <section class="form-card">
+          <div class="form-card-titulo"><span class="passo">02</span><div><h2>Dados do cliente</h2><p>Identificação de quem está realizando a locação.</p></div></div>
+          <div class="form-grid">
+            <div class="campo campo-span-2"><label for="nomeCliente">Nome completo *</label><input id="nomeCliente" required placeholder="Nome do cliente"></div>
+            <div class="campo"><label for="cpf">CPF/CNPJ *</label><input id="cpf" required placeholder="Documento"></div>
+            <div class="campo"><label for="telefone">Telefone *</label><input id="telefone" required placeholder="(00) 00000-0000"></div>
+            <div class="campo"><label for="cnh">CNH / Categoria *</label><input id="cnh" required placeholder="Número e categoria"></div>
+            <div class="campo"><label for="emailCliente">E-mail</label><input type="email" id="emailCliente" placeholder="cliente@email.com"></div>
+          </div>
+        </section>
+        <section class="form-card">
+          <div class="form-card-titulo"><span class="passo">03</span><div><h2>Dados do veículo</h2><p>Informações para identificar o automóvel.</p></div></div>
+          <div class="form-grid">
+            <div class="campo"><label for="placa">Placa *</label><input id="placa" required placeholder="ABC1D23" maxlength="8"></div>
+            <div class="campo"><label for="marca">Marca *</label><input id="marca" required placeholder="Ex.: Volkswagen"></div>
+            <div class="campo"><label for="modelo">Modelo *</label><input id="modelo" required placeholder="Ex.: Polo"></div>
+            <div class="campo"><label for="ano">Ano *</label><input type="number" id="ano" min="1900" max="2100" required placeholder="2025"></div>
+            <div class="campo"><label for="cor">Cor</label><input id="cor" placeholder="Ex.: Prata"></div>
+            <div class="campo"><label for="kmSaida">Quilometragem de saída (km) *</label><input type="number" id="kmSaida" min="0" required placeholder="Ex.: 25000"></div>
+            <div class="campo"><label for="combustivel">Tipo de combustível</label><select id="combustivel"><option value="">Selecione</option><option>Gasolina</option><option>Etanol</option><option>Flex</option><option>Diesel</option><option>Elétrico</option><option>Híbrido</option></select></div>
+            <div class="campo"><label for="nivelCombustivel">Nível do combustível *</label><select id="nivelCombustivel" required><option value="">Selecione</option><option>Reserva</option><option>1/4</option><option>1/2</option><option>3/4</option><option>Cheio</option></select></div>
+          </div>
+        </section>
+<section class="form-card" id="checkin-etapa1"><div class="form-card-titulo"><span class="passo">01</span><div><h2>Vistoria externa e interna — Check-in</h2><p>Registre uma fotografia de cada uma das oito partes do veículo.</p></div></div><div class="vistoria-grid"><article class="vistoria-item"><div class="vistoria-item-topo"><strong>01. Frente</strong><span>Foto obrigatória</span></div><label for="checkin-foto-0">Fotografia</label><input type="file" id="checkin-foto-0" accept="image/*" required><div id="checkin-preview-0" class="galeria-preview"></div><label for="checkin-obs-0">Observações</label><textarea id="checkin-obs-0" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>02. Traseira</strong><span>Foto obrigatória</span></div><label for="checkin-foto-1">Fotografia</label><input type="file" id="checkin-foto-1" accept="image/*" required><div id="checkin-preview-1" class="galeria-preview"></div><label for="checkin-obs-1">Observações</label><textarea id="checkin-obs-1" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>03. Lateral direita</strong><span>Foto obrigatória</span></div><label for="checkin-foto-2">Fotografia</label><input type="file" id="checkin-foto-2" accept="image/*" required><div id="checkin-preview-2" class="galeria-preview"></div><label for="checkin-obs-2">Observações</label><textarea id="checkin-obs-2" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>04. Lateral esquerda</strong><span>Foto obrigatória</span></div><label for="checkin-foto-3">Fotografia</label><input type="file" id="checkin-foto-3" accept="image/*" required><div id="checkin-preview-3" class="galeria-preview"></div><label for="checkin-obs-3">Observações</label><textarea id="checkin-obs-3" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>05. Parte superior (teto)</strong><span>Foto obrigatória</span></div><label for="checkin-foto-4">Fotografia</label><input type="file" id="checkin-foto-4" accept="image/*" required><div id="checkin-preview-4" class="galeria-preview"></div><label for="checkin-obs-4">Observações</label><textarea id="checkin-obs-4" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>06. Interior dianteiro</strong><span>Foto obrigatória</span></div><label for="checkin-foto-5">Fotografia</label><input type="file" id="checkin-foto-5" accept="image/*" required><div id="checkin-preview-5" class="galeria-preview"></div><label for="checkin-obs-5">Observações</label><textarea id="checkin-obs-5" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>07. Interior traseiro</strong><span>Foto obrigatória</span></div><label for="checkin-foto-6">Fotografia</label><input type="file" id="checkin-foto-6" accept="image/*" required><div id="checkin-preview-6" class="galeria-preview"></div><label for="checkin-obs-6">Observações</label><textarea id="checkin-obs-6" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article>
+<article class="vistoria-item"><div class="vistoria-item-topo"><strong>08. Porta-malas</strong><span>Foto obrigatória</span></div><label for="checkin-foto-7">Fotografia</label><input type="file" id="checkin-foto-7" accept="image/*" required><div id="checkin-preview-7" class="galeria-preview"></div><label for="checkin-obs-7">Observações</label><textarea id="checkin-obs-7" rows="2" placeholder="Descreva o estado desta parte do veículo"></textarea></article></div><div class="barra-acoes"><button type="button" class="btn btn-principal" id="checkin-ir-etapa2">Continuar para avarias →</button></div></section>
+<section class="form-card oculto" id="checkin-etapa2"><div class="form-card-titulo"><span class="passo">02</span><div><h2>Avarias e condições do veículo</h2><p>Informe se existem danos, batidas ou outros problemas.</p></div></div>
+<div class="form-grid">
+<div class="campo"><label>O veículo possui alguma avaria? *</label><div class="opcoes-radio"><label><input type="radio" name="checkin-tem-avaria" value="sim" required> Sim</label><label><input type="radio" name="checkin-tem-avaria" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Possui batida ou amassado? *</label><div class="opcoes-radio"><label><input type="radio" name="checkin-tem-batida" value="sim" required> Sim</label><label><input type="radio" name="checkin-tem-batida" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Possui riscos ou arranhões? *</label><div class="opcoes-radio"><label><input type="radio" name="checkin-tem-riscos" value="sim" required> Sim</label><label><input type="radio" name="checkin-tem-riscos" value="nao" required> Não</label></div></div>
+<div class="campo"><label>Há danos em vidros, pneus ou faróis? *</label><div class="opcoes-radio"><label><input type="radio" name="checkin-tem-outros" value="sim" required> Sim</label><label><input type="radio" name="checkin-tem-outros" value="nao" required> Não</label></div></div>
+</div>
+<div class="campo"><label for="checkin-descricao-avarias">Descreva as avarias ou outras condições</label><textarea id="checkin-descricao-avarias" rows="4" placeholder="Informe onde está o dano, o tamanho e outros detalhes..."></textarea></div>
+<div class="campo"><label for="checkin-fotos-avarias">Fotos específicas das avarias (até 4)</label><input type="file" id="checkin-fotos-avarias" accept="image/*" multiple><small class="ajuda">Anexe imagens adicionais caso tenha respondido Sim em alguma pergunta.</small></div><div id="checkin-preview-avarias" class="galeria-preview"></div>
+<div class="barra-acoes"><button type="button" class="btn btn-secundario" id="checkin-voltar-etapa1">← Voltar para as fotos</button></div></section>
+        <p id="mensagem-checkin" class="mensagem-formulario" aria-live="polite"></p>
+        <div class="barra-acoes"><a class="btn btn-secundario" href="../dashboard.html">Sair</a><button class="btn btn-principal" type="submit">Salvar Check-in e visualizar relatório</button></div>
+      </form>
+      <footer class="rodape-app">Locadora+ · Registro de retirada</footer>
+    </main>
+  </div>
+  <script src="../js/dados.js"></script><script src="../js/checkin.js"></script>
+</body>
+</html>

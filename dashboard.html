@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel inicial | Locadora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a class="marca" href="dashboard.html">LOCADORA<span>+</span></a>
+      <span class="sidebar-legenda">MENU PRINCIPAL</span>
+      <nav class="sidebar-nav">
+        <a class="nav-link ativo" href="dashboard.html">▦ <span>Início</span></a>
+        <a class="nav-link" href="pages/checkin.html">↘ <span>Novo check-in</span></a>
+        <a class="nav-link" href="pages/checkout.html">↗ <span>Novo check-out</span></a>
+        <a class="nav-link" href="pages/relatorios.html">▤ <span>Relatórios</span></a>
+        <a class="nav-link" href="pages/pendentes.html">◷ <span>Locações pendentes</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="usuario-mini"><div class="avatar">A</div><div><strong id="nome-usuario">Administrador</strong><small>Funcionário</small></div></div>
+        <button class="nav-link botao-sair" data-sair>⇥ <span>Sair do sistema</span></button>
+      </div>
+    </aside>
+
+    <main class="conteudo">
+      <header class="topbar">
+        <div><span class="texto-suave">PAINEL DE CONTROLE</span><h1>Visão geral</h1></div>
+        <div class="topbar-data" id="data-atual"></div>
+      </header>
+
+      <section class="boas-vindas">
+        <div><span class="etiqueta etiqueta-clara">SISTEMA DE LOCAÇÃO</span><h2>Olá, <span id="saudacao-usuario">Administrador</span>!</h2><p>Acompanhe as movimentações dos veículos da sua locadora.</p></div>
+        <div class="boas-vindas-icone">🚘</div>
+      </section>
+
+      <section class="cards-indicadores">
+        <article class="indicador"><div class="indicador-topo"><span>Locações em andamento</span><span class="indicador-icone azul">↗</span></div><strong id="total-pendentes">0</strong><small>Veículos ainda não devolvidos</small></article>
+        <article class="indicador"><div class="indicador-topo"><span>Check-ins registrados</span><span class="indicador-icone roxo">↘</span></div><strong id="total-checkins">0</strong><small>Total de retiradas cadastradas</small></article>
+        <article class="indicador"><div class="indicador-topo"><span>Check-outs concluídos</span><span class="indicador-icone verde">✓</span></div><strong id="total-checkouts">0</strong><small>Total de devoluções finalizadas</small></article>
+      </section>
+
+      <section class="secao-painel">
+        <div class="titulo-secao"><div><span class="texto-suave">ACESSO RÁPIDO</span><h2>O que deseja fazer?</h2></div></div>
+        <div class="atalhos-grid">
+          <a class="atalho-card" href="pages/checkin.html"><span class="atalho-icone azul">↘</span><h3>Enviar Check-in</h3><p>Registrar a retirada do veículo, dados e fotos.</p><span class="atalho-link">Acessar formulário →</span></a>
+          <a class="atalho-card" href="pages/checkout.html"><span class="atalho-icone verde">↗</span><h3>Enviar Check-out</h3><p>Registrar a devolução e comparar as condições.</p><span class="atalho-link">Acessar formulário →</span></a>
+          <a class="atalho-card" href="pages/relatorios.html"><span class="atalho-icone roxo">▤</span><h3>Relatórios preenchidos</h3><p>Consultar retiradas e devoluções registradas.</p><span class="atalho-link">Consultar relatórios →</span></a>
+          <a class="atalho-card" href="pages/pendentes.html"><span class="atalho-icone laranja">◷</span><h3>Locações pendentes</h3><p>Visualizar veículos que ainda estão locados.</p><span class="atalho-link">Ver pendências →</span></a>
+        </div>
+      </section>
+
+      <section class="secao-painel">
+        <div class="titulo-secao"><div><span class="texto-suave">MOVIMENTAÇÕES</span><h2>Últimas locações</h2></div><a class="link-simples" href="pages/relatorios.html">Ver todas →</a></div>
+        <div class="tabela-wrapper"><table><thead><tr><th>Locação</th><th>Cliente</th><th>Veículo</th><th>Placa</th><th>Status</th></tr></thead><tbody id="ultimas-locacoes"><tr><td colspan="5" class="tabela-vazia">Nenhuma locação cadastrada.</td></tr></tbody></table></div>
+      </section>
+      <footer class="rodape-app">Locadora+ · Sistema demonstrativo de gestão de veículos</footer>
+    </main>
+  </div>
+  <script src="js/dados.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Locadora</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pagina-login">
+  <main class="login-layout">
+    <section class="login-apresentacao">
+      <span class="marca">LOCADORA<span>+</span></span>
+      <div>
+        <span class="etiqueta etiqueta-clara">GESTÃO DE VEÍCULOS</span>
+        <h1>Controle sua frota com mais praticidade.</h1>
+        <p>Gerencie retiradas, devoluções, fotografias e relatórios em um só lugar.</p>
+      </div>
+      <p class="login-rodape">Sistema de Gestão de Locadora</p>
+    </section>
+
+    <section class="login-form-area">
+      <form id="form-login" class="login-card">
+        <div class="icone-login">↗</div>
+        <span class="texto-suave">BEM-VINDO(A) DE VOLTA</span>
+        <h2>Acesse sua conta</h2>
+        <p class="texto-suave">Informe seus dados para continuar.</p>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="admin@locadora.com" required>
+        </div>
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="Digite sua senha" required>
+        </div>
+        <p id="mensagem-login" class="mensagem-formulario" aria-live="polite"></p>
+        <button class="btn btn-principal btn-largo" type="submit">Entrar no sistema</button>
+        <div class="aviso-demo">
+          <strong>Acesso para demonstração</strong>
+          <span>E-mail: admin@locadora.com</span>
+          <span>Senha: 123456</span>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="js/dados.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
